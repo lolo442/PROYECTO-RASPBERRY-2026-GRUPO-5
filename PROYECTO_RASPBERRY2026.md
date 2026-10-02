@@ -1,5 +1,7 @@
 # Entrega 1: Instalación y configuración de SSH en la Raspberry Pi
 
+![Raspberry Pi 3](https://images.prismic.io/rpf-products/877fb653-7b43-4931-9cee-977a22571f65_3b+Angle+2+refresh.jpg?auto=compress%2Cformat&fit=max)
+
 ## Integrantes Grupo 5
 
 - Lorenzo Palacios
