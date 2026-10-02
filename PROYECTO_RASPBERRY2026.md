@@ -45,13 +45,13 @@ Al procedimiento lo podemos dividir en 2 facetas :
 
 ### Configuracion de SSH
 
-7. Corremos hostname -I desde la raspberry para obtener la ip de ssh, para referenciarla desde otro dispositivo (nuestra pc)
+1. Corremos hostname -I desde la raspberry para obtener la ip de ssh, para referenciarla desde otro dispositivo (nuestra pc)
 
-8. Desde nuestra pc, nos conectamos de forma remota a la Raspberry con el comando 'ssh [Nombredeusuario]@[direccion-IP]', no nos hizo falta instalar ssh porque viene incluido en Debian
+2. Desde nuestra pc, nos conectamos de forma remota a la Raspberry con el comando 'ssh [Nombredeusuario]@[direccion-IP]', no nos hizo falta instalar ssh porque viene incluido en Debian
 
-9. Comprobamos la conexion creando un archivo desde el remoto para ver si funciona con 'touch <nombre-archivo>' (touch es un comando para crear archivos) y verificando que se encuentre en la Raspberry con 'ls' (comando que lista archivos)
+3. Comprobamos la conexion creando un archivo desde el remoto para ver si funciona con 'touch <nombre-archivo>' (touch es un comando para crear archivos) y verificando que se encuentre en la Raspberry con 'ls' (comando que lista archivos)
 
-10. Por ultimo, por recomendacion del mensaje cuando corrimos ssh, corrimos raspi-config en la raspberry para configurar la zona horaria y el pais.
+4. Por ultimo, por recomendacion del mensaje cuando corrimos ssh, corrimos raspi-config en la raspberry para configurar la zona horaria y el pais.
 
 ## Conclusión
 
