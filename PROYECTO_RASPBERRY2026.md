@@ -59,4 +59,4 @@ Al procedimiento lo podemos dividir en 2 facetas :
 
 Con esta actividad logramos entender como configurar entre dos computadoras un acceso remoto y seguro con SSH, y como hacer la instalación y configuración del sistema operativo Raspberry para una Raspberry Pi.
 
-![Raspberry Pi logo](https://companieslogo.com/img/orig/RPI.L_BIG-6ca2afa4.png?t=1724236366)
+![Raspberry Pi logo](https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2016/10/raspberry_pi_logo/16166824-1-eng-GB/Raspberry_Pi_logo.jpg)
