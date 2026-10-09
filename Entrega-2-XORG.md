@@ -31,9 +31,6 @@ El Sistema de Ventanas X (también conocido como X11 o Xorg (su implementación 
 - X11:
 Se refiere a la versión número 11 del Sistema X, la más usada contemporáneamente.
 
-¿Cómo funciona?
-
-• Modelo cliente-servidor: Funciona separando el programa que se ejecuta (el cliente) del gestor que dibuja la pantalla y controla el hardware como el teclado, el ratón y la tarjeta gráfica (el servidor X).
 ## Procedimiento
 
 1. Cambiamos el archivo de configuración ssh (/etc/ssh/sshd_config) del lado server (la raspberry) para añadir el argumento 'X11Forwarding yes'. Usamos como comando sudo nano <ruta-del-archivo>. En el cual:
