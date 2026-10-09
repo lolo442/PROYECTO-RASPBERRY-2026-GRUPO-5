@@ -33,7 +33,7 @@ Se refiere a la versión número 11 del Sistema X, la más usada contemporáneam
 
 ## Procedimiento
 
-1. Cambiamos el archivo de configuración ssh (/etc/ssh/sshd_config) del lado server (la raspberry) para añadir el argumento 'X11Forwarding yes'. Usamos como comando sudo nano <ruta-del-archivo>. En el cual:
+1. Cambiamos el archivo de configuración ssh (/etc/ssh/sshd_config) del lado server (la raspberry) para añadir el argumento 'X11Forwarding yes'. Usamos como comando sudo nano [ruta-del-archivo]. En el cual:
 - sudo: 'superuser do' corre con privilegios aumentados el nano (porque estamos operando archivos de configuración sensibles)
 - nano: editor de texto innato de la mayoría de sistemas linux operado desde la terminal
 
