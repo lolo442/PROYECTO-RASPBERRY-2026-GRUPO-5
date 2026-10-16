@@ -1,6 +1,6 @@
 # Entrega 1: Instalación y configuración de SSH en la Raspberry Pi
 
-![Raspberry Pi 3]([https://images.prismic.io/rpf-products/877fb653-7b43-4931-9cee-977a22571f65_3b+Angle+2+refresh.jpg?auto=compress%2Cformat&fit=max](https://github.com/lolo442/PROYECTO-RASPBERRY-2026-GRUPO-5/blob/main/media/capturalogin.png))
+![Raspberry Pi 3](https://github.com/lolo442/PROYECTO-RASPBERRY-2026-GRUPO-5/blob/main/media/capturalogin.png)
 
 ## Integrantes Grupo 5
 
