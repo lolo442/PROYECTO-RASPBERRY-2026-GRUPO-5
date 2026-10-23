@@ -12,5 +12,5 @@
 
 # Índice de informes semanales
 
-- [TP1](TP-1-OS-y-SSH/informe.md)
-- [TP2](TP2-X11_FORWARDING/informe.md)
+- [TP1: Instalación de RaspberryOS y Configuración de SSH](TP-1-OS-y-SSH/informe.md)
+- [TP2: Configuración de Forwarding por medio del protocolo X11 para aplicaciones gráficas](TP2-X11_FORWARDING/informe.md)
