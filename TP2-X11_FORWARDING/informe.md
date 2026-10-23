@@ -1,3 +1,4 @@
+[← Volver](../README.md)
 # Entrega 2: Instalación y configuración de X11 mediante SSH
 
 ![Logo de X.Org](media/xorg-logo.jpg)
