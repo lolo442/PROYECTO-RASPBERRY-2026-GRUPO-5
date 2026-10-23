@@ -23,7 +23,6 @@ Antes de entregar el informe, completar los siguientes datos con la información
 | Modelo de Raspberry Pi | **[Raspberry Pi b+]** |
 | Sistema operativo de la Raspberry Pi | **[Raspberry Pi os Lite]** |
 | Tipo de conexión de red | **[Ethernet]** |
-| Dirección IP de la Raspberry Pi | **[Completar]** |
 | Nombre del usuario de la Raspberry Pi | **[grupo-05]** |
 | Aplicación gráfica utilizada | **[XDEmineur]** |
 
