@@ -97,6 +97,9 @@ El mensaje que devuelve es porque el paquete isc-dhcp-server es antiguo y utiliz
 
 ## 7. Chequeamos la conexion con un ping
 Pingeamos la raspberry conectada con un switch a nuestra notebook
+```
+ping 192.168.5.1
+```
 ![paso 7](media/paso7.png) 
 
 ## Comprobaciones realizadas
