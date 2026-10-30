@@ -89,9 +89,15 @@ Le configuramos las direcciones DNS para que use los servidores de google (8.8.8
 ![paso 5c](media/paso5c.png)
 ## 6. Activamos el servicio
 ![paso 6](media/paso6.png)
-## 7. Chequeamos la conexion con un ping
-![paso 7](media/paso7.png)
+```
+systemctl enable isc-dhcp-server
+```
 
+El mensaje que devuelve es porque el paquete isc-dhcp-server es antiguo y utiliza el servicio legacy sysvinit. Systemd detecta esto y automaticamente nos redirecciona el comando a sysvinit para activarlo
+
+## 7. Chequeamos la conexion con un ping
+Pingeamos la raspberry conectada con un switch a nuestra notebook
+![paso 7](media/paso7.png) 
 
 ## Comprobaciones realizadas
 
@@ -111,48 +117,12 @@ Resultado
 
 ## Posibles errores y soluciones
 
-### La variable `DISPLAY` aparece vacía
-
-Se debe comprobar que:
-
-- La conexión se haya iniciado con `ssh -X`.
-- La línea `X11Forwarding yes` se encuentre activa en `/etc/ssh/sshd_config`.
-- El servicio SSH se haya reiniciado después de modificar el archivo.
-- `xauth` esté instalado en la Raspberry Pi.
-
-### La aplicación indica que no puede abrir la pantalla
-
-Puede aparecer un mensaje similar a:
-
-```text
-Error: Can't open display
-```
-
-En ese caso, se debe revisar el valor de `DISPLAY`, la disponibilidad del entorno X11 o XWayland en la computadora cliente y la configuración del servidor SSH.
-
-### La conexión SSH funciona, pero la ventana no aparece
-
-Se puede iniciar la conexión en modo detallado para revisar el proceso:
-
-```bash
-ssh -v -X usuario@direccion_ip
-```
-
-La opción `-v` muestra información de diagnóstico y permite comprobar si SSH solicitó correctamente el reenvío X11.
 
 ## Consideraciones de seguridad
 
-- El tráfico de X11 se transporta dentro del canal cifrado de SSH.
-- No se deben escribir contraseñas dentro del informe ni mostrarlas en capturas de pantalla.
-- Es preferible utilizar `ssh -X` en lugar de `ssh -Y`, salvo que exista una razón técnica justificada.
-- Solo se deben ejecutar aplicaciones provenientes de equipos remotos confiables.
-- No es recomendable desactivar controles de autenticación mediante comandos como `xhost +`, debido a que permitirían conexiones gráficas sin una restricción adecuada.
+
 
 ## Conclusión
 
-Con esta actividad logramos configurar y comprobar el reenvío X11 mediante SSH. La aplicación gráfica se ejecutó en la Raspberry Pi, mientras que su ventana se mostró en la computadora cliente por medio de una conexión cifrada.
 
-También comprendimos la función de la opción `-X`, de la herramienta `xauth`, de la variable `DISPLAY` y del archivo `/etc/ssh/sshd_config`. La ejecución del buscaminas confirmó que la configuración funcionaba correctamente.
-
-Esta configuración puede facilitar la administración remota de aplicaciones gráficas instaladas en la Raspberry Pi. Sin embargo, X11 Forwarding no es un requisito para utilizar posteriormente la Raspberry Pi como router, sino una herramienta adicional para su administración remota.
 
