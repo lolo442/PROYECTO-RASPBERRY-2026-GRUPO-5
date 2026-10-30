@@ -62,21 +62,28 @@ sudo apt install isc-dhcp-server
 ![paso 1](media/paso1.png)
 
 ## 2. Puerto DHCP
-Configuramos /etc/default/isc-dhcp-server para especificar el puerto para la conexion
+Configuramos /etc/default/isc-dhcp-server para especificar el puerto para la conexion con el resto de la LAN
+```
+sudo nano /etc/default/isc-dhcp-server
+```
 ![paso 2](media/paso2.png)
 
 ## 3. Copia de Seguridad
 Queremos configurar el servicio modificando el archivo /etc/dhcp/dhcpd.conf, asi que para poder recuperarlo en caso de errores lo copiamos con el comandp 'cp'
+```
+sudo cp /etc/dhcp/dhcpd.conf dhcp.conf
+```
 ![paso 3](media/paso3.png)
 
 ## 4. Configuracion general del Servicio
 Configuramos el archivo general para especificar cosas como la subred, el rango de asignacion, los servidores DNS, etc
 (le configuramos un rango de .51 a .254)
-(.1 es el gateway y el dhcp al mismo tiempo)
 ![paso 4](media/paso4.png)
 ![paso 4b](media/paso4b.png)
 (archivo despues de editado)
 ## 5. Usando nmtui para configurar la direccion ip del servidor, mascara de subred y gateway
+(.1 es el gateway y el dhcp al mismo tiempo porque despues lo vamos a configurar como router)
+Le configuramos las direcciones DNS para que use los servidores de google (8.8.8.8 y 8.8.8.4) y los de cloudflare (1.1.1.1)
 ![paso 5](media/paso5.png)
 ![paso 5b](media/paso5b.png)
 ![paso 5c](media/paso5c.png)
