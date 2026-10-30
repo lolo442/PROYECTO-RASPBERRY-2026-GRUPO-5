@@ -261,7 +261,9 @@ subnet 192.168.5.0 netmask 255.255.255.0 {
 ```
 
 ![paso 4](media/paso4.png)
+<br>
 ![paso 4b](media/paso4b.png)
+<br>
 (archivo despues de editado)
 ## 5. Usando nmtui para configurar la direccion ip del servidor, mascara de subred y gateway
 Para que la Raspberry Pi pueda funcionar como servidor DHCP, necesita tener una dirección IP estable y conocida por los clientes.
@@ -293,8 +295,11 @@ La máscara de subred utilizada para la red fue `255.255.255.0`.
 También se configuró `192.168.5.1` como gateway previsto para la red local, ya que posteriormente la Raspberry Pi será utilizada como router.
 
 ![paso 5](media/paso5.png)
+<br>
 ![paso 5b](media/paso5b.png)
+<br>
 ![paso 5c](media/paso5c.png)
+<br>
 ## 6. Activamos el servicio
 ![paso 6](media/paso6.png)
 ```
