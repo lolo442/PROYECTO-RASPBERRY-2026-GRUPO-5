@@ -247,9 +247,6 @@ La red utilizada fue `192.168.5.0/24`, con máscara `255.255.255.0`.
 
 El rango de direcciones configurado para los clientes fue desde `192.168.5.51` hasta `192.168.5.254`.
 
-El bloque correspondiente debe incluir la declaración de la subred, el rango, la máscara y las opciones necesarias para los clientes. Se debe conservar aquí el código exacto que aparece en las capturas de esta práctica.
-
-Como referencia, una configuración de este tipo tiene la siguiente estructura:
 
 ```conf
 subnet 192.168.5.0 netmask 255.255.255.0 {
