@@ -14,4 +14,5 @@
 
 - [TP1: Instalación de RaspberryOS y Configuración de SSH](TP-1-OS-y-SSH/informe.md)
 - [TP2: Configuración de Forwarding por medio del protocolo X11 para aplicaciones gráficas](TP2-X11_FORWARDING/informe.md)
-- [TP3: Configuración de Servidor DHCP(TP3-SERVIDOR_DHCP](TP3-SERVIDOR_DHCP/informe.md)
+- [TP3: Configuración de Servidor DHCP](TP3-SERVIDOR_DHCP/informe.md)
+- [TP4: Configuración de FTP](TP4-FTP/informe.md)

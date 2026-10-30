@@ -1,7 +1,7 @@
 [← Volver](../README.md)
 # Entrega 4: File Transfer Protocol
 
-![Logo de X.Org](media/xorg-logo.jpg)
+![Filezilla](media/filezilla.jpg)
 
 ## Integrantes del Grupo 5
 
@@ -13,11 +13,10 @@
 
 ## Objetivo
 
-Objetivo
+Objetivo 
 
 ## Entorno de trabajo
 
-Antes de entregar el informe, completar los siguientes datos con la información utilizada durante la práctica:
 
 | Elemento | Información |
 |---|---|
@@ -44,50 +43,50 @@ Ambos equipos se encontraban conectados a la misma red local durante la activida
 
 ## Definiciones
 
-### Hay uqe poner
-
 ## Procedimiento
 
 ### 1. Instalación de Paquetes de Servidor DHCP
 
-El primer paso es conectarnos a la Raspberry con ssh e instalar el paquete isc-dhcp-server con lo necesario para la configuración:
+(tuvimos que deshacer los pasos de la consigna anterior para acceder a internet)
+El primer paso es instalar el paquete vsftpd (Very Secure File Transfer Protocol Daemon), para esto, usamos la herramienta de instalación de paquetes apt:
 ```
-sudo apt install isc-dhcp-server
+sudo apt install vsftpd
 ```
-
 ![paso 1](media/paso1.png)
 
-## 2. Puerto DHCP
-Configuramos /etc/default/isc-dhcp-server para especificar el puerto para la conexion con el resto de la LAN
+### 2. Configurar vsftpd
+
+Modificamos el archivo de configuración de vsftpd en la ruta /etc/vsftpd.conf con sudo nano, añadiendo las opciones de local_enable=YES (permite que se logueen los usuarios locales) y write_enable=YES (permite cualquer tipo de comando FTP de escritura en el disco)
 ```
-sudo nano /etc/default/isc-dhcp-server
+sudo nano /etc/vsftpd.conf
 ```
 ![paso 2](media/paso2.png)
 
-## 3. Copia de Seguridad
-Queremos configurar el servicio modificando el archivo /etc/dhcp/dhcpd.conf, asi que para poder recuperarlo en caso de errores lo copiamos con el comandp 'cp'
+### 3. Configurar vsftpd
+
+Reiniciamos el servicio para aplicar los cambios de configuración
 ```
-sudo cp /etc/dhcp/dhcpd.conf dhcp.conf
+sudo service vsftpd restart
 ```
+
 ![paso 3](media/paso3.png)
 
-## 4. Configuracion general del Servicio
-Configuramos el archivo general para especificar cosas como la subred, el rango de asignacion, los servidores DNS, etc
-(le configuramos un rango de .51 a .254)
-![paso 4](media/paso4.png)
-![paso 4b](media/paso4b.png)
-(archivo despues de editado)
-## 5. Usando nmtui para configurar la direccion ip del servidor, mascara de subred y gateway
-(.1 es el gateway y el dhcp al mismo tiempo porque despues lo vamos a configurar como router)
-Le configuramos las direcciones DNS para que use los servidores de google (8.8.8.8 y 8.8.8.4) y los de cloudflare (1.1.1.1)
-![paso 5](media/paso5.png)
-![paso 5b](media/paso5b.png)
-![paso 5c](media/paso5c.png)
-## 6. Activamos el servicio
-![paso 6](media/paso6.png)
-## 7. Chequeamos la conexion con un ping
-![paso 7](media/paso7.png)
+### 4. Instalar FileZilla
 
+Este es el programa que usamos para comprobar la conexión
+
+![paso 4](media/filezilla.png)
+
+### 5. Comprobando la conexión y el funcionamiento con FileZilla
+
+(Volvimos a hacer los ultimos pasos de la guia 3 para reestablecer la lan aislada de notebook y Raspberry)
+Nos conectamos al server FTP (la Raspberry) con su direccion ip en nuestra lan (192.168.5.1) y especificamos usuario y contraseña de ingreso
+
+![paso 5](media/paso5.png)
+Comprobamos que podemos ver todos los archivos en el home de grupo-05
+![paso 5b](media/paso5b.png)
+Creamos un archivo 'pepe.txt' para comprobar que funciona la conexion FTP
+![paso 5c](media/paso5c.png)
 
 ## Comprobaciones realizadas
 
@@ -107,48 +106,6 @@ Resultado
 
 ## Posibles errores y soluciones
 
-### La variable `DISPLAY` aparece vacía
-
-Se debe comprobar que:
-
-- La conexión se haya iniciado con `ssh -X`.
-- La línea `X11Forwarding yes` se encuentre activa en `/etc/ssh/sshd_config`.
-- El servicio SSH se haya reiniciado después de modificar el archivo.
-- `xauth` esté instalado en la Raspberry Pi.
-
-### La aplicación indica que no puede abrir la pantalla
-
-Puede aparecer un mensaje similar a:
-
-```text
-Error: Can't open display
-```
-
-En ese caso, se debe revisar el valor de `DISPLAY`, la disponibilidad del entorno X11 o XWayland en la computadora cliente y la configuración del servidor SSH.
-
-### La conexión SSH funciona, pero la ventana no aparece
-
-Se puede iniciar la conexión en modo detallado para revisar el proceso:
-
-```bash
-ssh -v -X usuario@direccion_ip
-```
-
-La opción `-v` muestra información de diagnóstico y permite comprobar si SSH solicitó correctamente el reenvío X11.
-
-## Consideraciones de seguridad
-
-- El tráfico de X11 se transporta dentro del canal cifrado de SSH.
-- No se deben escribir contraseñas dentro del informe ni mostrarlas en capturas de pantalla.
-- Es preferible utilizar `ssh -X` en lugar de `ssh -Y`, salvo que exista una razón técnica justificada.
-- Solo se deben ejecutar aplicaciones provenientes de equipos remotos confiables.
-- No es recomendable desactivar controles de autenticación mediante comandos como `xhost +`, debido a que permitirían conexiones gráficas sin una restricción adecuada.
 
 ## Conclusión
-
-Con esta actividad logramos configurar y comprobar el reenvío X11 mediante SSH. La aplicación gráfica se ejecutó en la Raspberry Pi, mientras que su ventana se mostró en la computadora cliente por medio de una conexión cifrada.
-
-También comprendimos la función de la opción `-X`, de la herramienta `xauth`, de la variable `DISPLAY` y del archivo `/etc/ssh/sshd_config`. La ejecución del buscaminas confirmó que la configuración funcionaba correctamente.
-
-Esta configuración puede facilitar la administración remota de aplicaciones gráficas instaladas en la Raspberry Pi. Sin embargo, X11 Forwarding no es un requisito para utilizar posteriormente la Raspberry Pi como router, sino una herramienta adicional para su administración remota.
 
