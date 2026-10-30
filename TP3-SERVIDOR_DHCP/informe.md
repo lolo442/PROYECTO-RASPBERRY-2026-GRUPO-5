@@ -60,27 +60,31 @@ sudo apt install isc-dhcp-server
 ```
 
 ![paso 1](media/paso1.png)
+
+## 2. Puerto DHCP
+Configuramos /etc/default/isc-dhcp-server para especificar el puerto para la conexion
 ![paso 2](media/paso2.png)
+
+## 3. Copia de Seguridad
+Queremos configurar el servicio modificando el archivo /etc/dhcp/dhcpd.conf, asi que para poder recuperarlo en caso de errores lo copiamos con el comandp 'cp'
 ![paso 3](media/paso3.png)
+
+## 4. Configuracion general del Servicio
+Configuramos el archivo general para especificar cosas como la subred, el rango de asignacion, los servidores DNS, etc
+(le configuramos un rango de .51 a .254)
+(.1 es el gateway y el dhcp al mismo tiempo)
 ![paso 4](media/paso4.png)
 ![paso 4b](media/paso4b.png)
+(archivo despues de editado)
+## 5. Usando nmtui para configurar la direccion ip del servidor, mascara de subred y gateway
 ![paso 5](media/paso5.png)
 ![paso 5b](media/paso5b.png)
 ![paso 5c](media/paso5c.png)
+## 6. Activamos el servicio
 ![paso 6](media/paso6.png)
+## 7. Chequeamos la conexion con un ping
 ![paso 7](media/paso7.png)
 
-
-## Opción `-X` y opción `-Y`
-
-SSH ofrece dos opciones relacionadas con el reenvío X11:
-
-| Opción | Funcionamiento | Seguridad |
-|---|---|---|
-| `-X` | Habilita un reenvío X11 con restricciones. | Es la opción recomendada para esta práctica. |
-| `-Y` | Habilita un reenvío X11 considerado confiable. | Tiene menos restricciones, pero concede más permisos a las aplicaciones remotas. |
-
-Utilizamos `-X` porque ofrece mayores restricciones de seguridad. La opción `-Y` debería emplearse únicamente cuando se confía en el equipo remoto y una aplicación no funciona correctamente con `-X`.
 
 ## Comprobaciones realizadas
 
@@ -96,11 +100,7 @@ Utilizamos `-X` porque ofrece mayores restricciones de seguridad. La opción `-Y
 
 ## Resultado
 
-La prueba fue exitosa: el buscaminas se ejecutó en la Raspberry Pi y su ventana se mostró en la computadora cliente a través de la conexión SSH.
-
-![Buscaminas ejecutado mediante X11 Forwarding](media/buscaminas.png)
-
-**Figura 1.** Aplicación de buscaminas ejecutada en la Raspberry Pi y visualizada en la computadora cliente mediante X11 Forwarding sobre SSH.
+Resultado
 
 ## Posibles errores y soluciones
 
@@ -149,15 +149,3 @@ También comprendimos la función de la opción `-X`, de la herramienta `xauth`,
 
 Esta configuración puede facilitar la administración remota de aplicaciones gráficas instaladas en la Raspberry Pi. Sin embargo, X11 Forwarding no es un requisito para utilizar posteriormente la Raspberry Pi como router, sino una herramienta adicional para su administración remota.
 
-## Evidencias recomendadas para la entrega
-
-Para que el procedimiento quede completamente demostrado, se recomienda incluir capturas de:
-
-1. La línea `X11Forwarding yes` en `/etc/ssh/sshd_config`.
-2. El resultado de `sudo sshd -t` y `sudo systemctl status ssh`.
-3. La comprobación de `xauth` mediante `which xauth`.
-4. La conexión realizada con `ssh -X`.
-5. El resultado de `echo $DISPLAY`.
-6. La ventana del buscaminas visible en la computadora cliente.
-
-Cada captura debe tener un número, un título breve y una explicación de lo que demuestra.
