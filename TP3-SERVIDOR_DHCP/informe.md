@@ -12,7 +12,7 @@
 
 ## Objetivo
 
-COnfigurar el servicio DHCP para que la Raspberry Pi funcione como el servidor proporcionandole así direcciones IP a las Notebook.
+Configurar el servicio DHCP para que la Raspberry Pi funcione como el servidor proporcionandole así direcciones IP a las Notebook.
 
 ## Entorno de trabajo
 
