@@ -126,10 +126,10 @@ El primer paso es conectarnos a la Raspberry con ssh e instalar el paquete isc-d
 ```
 sudo apt install isc-dhcp-server
 ```
-sudo : Super User Do (Ejecuta lo siguiente como superusuario)
-apt: Gestor de paquetes de debian.
-install: Indica a apt que debe instalar lo siguiente.
-isc-dhcp-server: Es el nombre del paquete que contiene el servicio del servidor DHCP.
+- `sudo` : Super User Do (Ejecuta lo siguiente como superusuario)
+- `apt`: Gestor de paquetes de debian.
+- `install`: Indica a apt que debe instalar lo siguiente.
+- `isc-dhcp-server`: Es el nombre del paquete que contiene el servicio del servidor DHCP.
 
 ![paso 1](media/paso1.png)
 
