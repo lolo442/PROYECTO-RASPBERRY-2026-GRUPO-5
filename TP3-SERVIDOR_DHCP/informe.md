@@ -176,8 +176,10 @@ La copia se creó en el directorio actual, ya que no se especificó otra ruta de
 ![paso 3](media/paso3.png)
 
 ## 4. Configuracion general del Servicio
-Configuramos el archivo general para especificar cosas como la subred, el rango de asignacion, los servidores DNS, etc
-(le configuramos un rango de .51 a .254)
+Ahora sí, con la copia de seguridad hecha, configuramos el archivo general para especificar cosas como la subred, el rango de asignacion, los servidores DNS, etc
+```
+sudo nano /etc/dhcp/dhcpd.conf
+```
 Este archivo permite establecer parámetros generales del servicio, como el nombre de dominio, los servidores DNS, los tiempos de concesión, la subred y el rango de direcciones IP disponibles.
 
 Entre las opciones configuradas se encuentran:
