@@ -12,7 +12,7 @@
 
 ## Objetivo
 
-COnfigurar el servicio DHCP para que la Raspberry Pi funcione como el servidor proporcionandole así direcciones IP a las Notebook.
+Configurar el servicio DHCP para que la Raspberry Pi funcione como el servidor proporcionandole así direcciones IP a las Notebook.
 
 ## Entorno de trabajo
 
@@ -126,10 +126,10 @@ El primer paso es conectarnos a la Raspberry con ssh e instalar el paquete isc-d
 ```
 sudo apt install isc-dhcp-server
 ```
-sudo : Super User Do (Ejecuta lo siguiente como superusuario)
-apt: Gestor de paquetes de debian.
-install: Indica a apt que debe instalar lo siguiente.
-isc-dhcp-server: Es el nombre del paquete que contiene el servicio del servidor DHCP.
+- `sudo` : Super User Do (Ejecuta lo siguiente como superusuario)
+- `apt`: Gestor de paquetes de debian.
+- `install`: Indica a apt que debe instalar lo siguiente.
+- `isc-dhcp-server`: Es el nombre del paquete que contiene el servicio del servidor DHCP.
 
 ![paso 1](media/paso1.png)
 
@@ -176,8 +176,10 @@ La copia se creó en el directorio actual, ya que no se especificó otra ruta de
 ![paso 3](media/paso3.png)
 
 ## 4. Configuracion general del Servicio
-Configuramos el archivo general para especificar cosas como la subred, el rango de asignacion, los servidores DNS, etc
-(le configuramos un rango de .51 a .254)
+Ahora sí, con la copia de seguridad hecha, configuramos el archivo general para especificar cosas como la subred, el rango de asignacion, los servidores DNS, etc
+```
+sudo nano /etc/dhcp/dhcpd.conf
+```
 Este archivo permite establecer parámetros generales del servicio, como el nombre de dominio, los servidores DNS, los tiempos de concesión, la subred y el rango de direcciones IP disponibles.
 
 Entre las opciones configuradas se encuentran:
@@ -261,7 +263,9 @@ subnet 192.168.5.0 netmask 255.255.255.0 {
 ```
 
 ![paso 4](media/paso4.png)
+<br>
 ![paso 4b](media/paso4b.png)
+<br>
 (archivo despues de editado)
 ## 5. Usando nmtui para configurar la direccion ip del servidor, mascara de subred y gateway
 Para que la Raspberry Pi pueda funcionar como servidor DHCP, necesita tener una dirección IP estable y conocida por los clientes.
@@ -293,8 +297,11 @@ La máscara de subred utilizada para la red fue `255.255.255.0`.
 También se configuró `192.168.5.1` como gateway previsto para la red local, ya que posteriormente la Raspberry Pi será utilizada como router.
 
 ![paso 5](media/paso5.png)
+<br>
 ![paso 5b](media/paso5b.png)
+<br>
 ![paso 5c](media/paso5c.png)
+<br>
 ## 6. Activamos el servicio
 ![paso 6](media/paso6.png)
 ```
